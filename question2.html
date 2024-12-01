@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books Information</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <h1>Books Details</h1>
+  <div>
+    <p id="book1-title"></p>
+    <p id="book2-author"></p>
+    <p id="all-genres"></p>
+  </div>
+
+  <script>
+    // Load JSON data
+    const books = [
+      {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "publicationYear": 1925,
+        "genres": ["Fiction", "Classics"]
+      },
+      {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "publicationYear": 1960,
+        "genres": ["Fiction", "Coming-of-Age"]
+      }
+    ];
+
+    // Display data
+    $(document).ready(function() {
+      $("#book1-title").text("Title of the first book: " + books[0].title);
+      $("#book2-author").text("Author of the second book: " + books[1].author);
+
+      const allGenres = books.flatMap(book => book.genres).join(", ");
+      $("#all-genres").text("Genres of all books: " + allGenres);
+    });
+  </script>
+</body>
+</html>
